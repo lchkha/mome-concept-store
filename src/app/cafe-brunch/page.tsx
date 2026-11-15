@@ -206,7 +206,7 @@ export default function CafeBrunchPage() {
         {/* Content Tabs */}
         {activeMenuTab === 'sales' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
-            {BRUNCH_MENU.sales.map((item, i) => (
+            {(BRUNCH_MENU?.sales || []).map((item, i) => (
               <div
                 key={i}
                 className="flex gap-4 p-4 bg-white rounded-2xl border border-[#E7E1D7] shadow-2xs hover:border-[#DACFC0] transition-colors"
@@ -235,7 +235,7 @@ export default function CafeBrunchPage() {
 
         {activeMenuTab === 'sucres' && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
-            {BRUNCH_MENU.sucres.map((item, i) => (
+            {(BRUNCH_MENU?.sucres || []).map((item, i) => (
               <div
                 key={i}
                 className="flex gap-4 p-4 bg-white rounded-2xl border border-[#E7E1D7] shadow-2xs hover:border-[#DACFC0] transition-colors"
@@ -264,7 +264,7 @@ export default function CafeBrunchPage() {
 
         {activeMenuTab === 'boissons' && (
           <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#E7E1D7] max-w-3xl mx-auto shadow-2xs animate-fade-in divide-y divide-[#E7E1D7]">
-            {BRUNCH_MENU.boissons.map((boisson, i) => (
+            {(BRUNCH_MENU?.boissons || []).map((boisson, i) => (
               <div key={i} className="py-4 first:pt-0 last:pb-0 flex items-center justify-between gap-4">
                 <div>
                   <h4 className="font-serif text-base font-semibold text-stone-900">{boisson.name}</h4>
