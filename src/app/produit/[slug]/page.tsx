@@ -325,7 +325,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <div>
                   <p className="font-semibold text-stone-900">Retrait Click & Collect gratuit</p>
                   <p className="text-[11px] text-stone-500">
-                    Prêt en 2h à notre boutique au 14 Rue des Carmélites, Nantes
+                    Prêt en 2h à notre boutique au 17 Rue du Maréchal Foch / Rue du Général de Gaulle, 68440 Habsheim
                   </p>
                 </div>
               </div>
@@ -482,7 +482,7 @@ export default function ProductDetailPage({ params }: PageProps) {
               ))}
             </div>
             <p className="text-xs text-stone-600 leading-relaxed">
-              &ldquo;Retiré en Click & Collect à la boutique de Nantes en moins d’une heure. L’accueil est adorable et l’emballage était superbe, prêt à être offert.&rdquo;
+              &ldquo;Retiré en Click & Collect à la boutique de Habsheim après un délicieux brunch le dimanche ! L’accueil d’Angela et Daniela est adorable et l’emballage était superbe.&rdquo;
             </p>
           </div>
 

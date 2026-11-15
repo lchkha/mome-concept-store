@@ -12,7 +12,7 @@ const REASSURANCE_ITEMS = [
   {
     icon: Store,
     title: 'Click & Collect sous 2h',
-    description: 'Commandez en ligne et retirez gratuitement vos achats à notre boutique à Nantes.',
+    description: 'Commandez en ligne et retirez gratuitement vos achats à notre boutique à Habsheim (68440).',
   },
   {
     icon: Gift,

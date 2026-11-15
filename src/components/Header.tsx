@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Heart, ShoppingBag, Menu, X, Store, ArrowRight } from 'lucide-react';
+import { Search, Heart, ShoppingBag, Menu, X, Store, ArrowRight, Coffee, UtensilsCrossed } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
-import { CATEGORIES } from '@/data/products';
+import { CATEGORIES, STORE_INFO } from '@/data/products';
 
 export default function Header() {
   const pathname = usePathname();
@@ -21,18 +21,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
 
   const navLinks = [
-    { label: 'Tous nos articles', href: '/catalogue' },
+    { label: 'E-Shop', href: '/catalogue' },
     { label: 'Mode Femme', href: '/catalogue?cat=mode' },
-    { label: 'Décoration', href: '/catalogue?cat=deco' },
-    { label: 'Accessoires', href: '/catalogue?cat=accessoires' },
-    { label: 'Idées Cadeaux', href: '/catalogue?cat=cadeaux' },
-    { label: 'La Boutique', href: '/la-boutique' },
+    { label: 'Déco & Papeterie', href: '/catalogue?cat=deco' },
+    { label: 'Café & Brunch', href: '/cafe-brunch', isSpecial: true },
+    { label: 'La Boutique Habsheim', href: '/la-boutique' },
   ];
 
   return (
@@ -70,25 +68,30 @@ export default function Header() {
                 MÔME
               </span>
               <span className="block text-[9px] sm:text-[10px] tracking-[0.28em] text-[#6E685F] uppercase font-sans font-medium -mt-1 group-hover:text-[#1E1E1E] transition-colors">
-                by print line
+                by print line • habsheim
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
+          <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium tracking-wide">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href.includes('?') && pathname.includes(link.href.split('?')[0]));
               return (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`relative py-1 text-stone-700 hover:text-[#C86D51] transition-colors ${
-                    isActive ? 'text-[#C86D51] font-semibold' : ''
+                  className={`relative py-1 transition-colors flex items-center gap-1.5 ${
+                    link.isSpecial
+                      ? 'text-[#C86D51] font-semibold bg-[#FAF3ED] px-3 py-1 rounded-full border border-[#F2D7C5] hover:bg-[#F4E6DC]'
+                      : isActive
+                      ? 'text-[#C86D51] font-semibold'
+                      : 'text-stone-700 hover:text-[#C86D51]'
                   }`}
                 >
-                  {link.label}
-                  {isActive && (
+                  {link.isSpecial && <Coffee className="w-3.5 h-3.5" />}
+                  <span>{link.label}</span>
+                  {isActive && !link.isSpecial && (
                     <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C86D51] rounded-full" />
                   )}
                 </Link>
@@ -115,10 +118,10 @@ export default function Header() {
             <Link
               href="/la-boutique"
               className="hidden xl:flex items-center gap-1.5 text-xs text-stone-600 hover:text-[#C86D51] transition-colors py-1.5 px-2.5 rounded-md hover:bg-[#F2EDE4]"
-              title="Retrait gratuit à la boutique de Nantes"
+              title="Retrait gratuit à la boutique de Habsheim"
             >
               <Store className="w-3.5 h-3.5 text-[#4A5D4E]" />
-              <span className="text-[11px] font-medium text-[#4A5D4E]">Click & Collect 2h</span>
+              <span className="text-[11px] font-medium text-[#4A5D4E]">Habsheim 68440</span>
             </Link>
 
             {/* Wishlist */}
@@ -172,7 +175,7 @@ export default function Header() {
                     MÔME
                   </span>
                   <p className="text-[9px] tracking-widest text-[#6E685F] uppercase">
-                    concept store chic & chaleureux
+                    concept store & brunch • habsheim
                   </p>
                 </div>
                 <button
@@ -184,6 +187,17 @@ export default function Header() {
               </div>
 
               <div className="mt-6 space-y-1">
+                <Link
+                  href="/cafe-brunch"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between px-3 py-3 rounded-lg text-base font-semibold bg-[#FAF3ED] text-[#C86D51] border border-[#F2D7C5]"
+                >
+                  <span className="flex items-center gap-2">
+                    <Coffee className="w-4 h-4" /> Le Café & Brunch
+                  </span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
@@ -199,7 +213,7 @@ export default function Header() {
 
               <div className="mt-8 pt-6 border-t border-[#E7E1D7]">
                 <p className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-3 px-3">
-                  Univers Concept Store
+                  Univers Boutique
                 </p>
                 <div className="grid grid-cols-2 gap-2 px-2">
                   {CATEGORIES.map((cat) => (
@@ -219,16 +233,16 @@ export default function Header() {
             <div className="pt-6 border-t border-[#E7E1D7] text-xs text-stone-600 space-y-2">
               <div className="flex items-center gap-2 text-stone-800 font-medium">
                 <Store className="w-4 h-4 text-[#4A5D4E]" />
-                <span>14, Rue des Carmélites, Nantes</span>
+                <span>{STORE_INFO.address}, {STORE_INFO.city}</span>
               </div>
-              <p className="text-stone-500">Mardi - Samedi • 10h30 - 19h00</p>
+              <p className="text-stone-500">Mercredi - Dimanche • Salon & E-Shop</p>
               <div className="pt-2">
                 <Link
-                  href="/la-boutique"
+                  href="/cafe-brunch"
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-[#C86D51] font-medium flex items-center gap-1 hover:underline"
                 >
-                  En savoir plus sur la boutique physique →
+                  Réserver une table de Brunch →
                 </Link>
               </div>
             </div>

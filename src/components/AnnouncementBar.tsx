@@ -1,24 +1,34 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, MapPin, Truck, ChevronRight } from 'lucide-react';
+import { Sparkles, MapPin, Truck, ChevronRight, Coffee, UtensilsCrossed } from 'lucide-react';
 import Link from 'next/link';
+import { STORE_INFO } from '@/data/products';
 
 const ANNOUNCEMENTS = [
   {
-    text: 'Livraison Colissimo offerte dès 60€ • Retrait gratuit sous 2h en boutique à Nantes',
-    icon: Truck,
-    badge: 'Livraison',
+    text: 'Brunch du week-end & salon de thé à Habsheim • Pofferts, brioches & lattes maison',
+    icon: UtensilsCrossed,
+    badge: 'Brunch Môme',
+    link: '/cafe-brunch',
   },
   {
-    text: '10% offerts sur votre première commande avec le code BIENVENUE10',
+    text: 'Concept store au 17 rue du Maréchal Foch / rue du Général de Gaulle, 68440 Habsheim',
+    icon: MapPin,
+    badge: 'Habsheim',
+    link: '/la-boutique',
+  },
+  {
+    text: 'Livraison offerte dès 60€ • Retrait gratuit sous 2h en boutique à Habsheim',
+    icon: Truck,
+    badge: 'Click & Collect',
+    link: '/catalogue',
+  },
+  {
+    text: '10% offerts avec le code BIENVENUE10 ou le code HABSHEIM pour les voisins !',
     icon: Sparkles,
     badge: 'Offre',
-  },
-  {
-    text: 'Retrouvez notre sélection déco & mode au 14 rue des Carmélites',
-    icon: MapPin,
-    badge: 'La Boutique',
+    link: '/catalogue',
   },
 ];
 
@@ -40,25 +50,28 @@ export default function AnnouncementBar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="hidden md:flex items-center gap-2 text-[#C98A3C]">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C86D51] animate-ping" />
-          <span className="font-serif italic text-stone-300">Concept store lifestyle indépendant</span>
+          <span className="font-serif italic text-stone-300">Concept store & Coffee shop • Habsheim (Alsace)</span>
         </div>
 
-        <div className="flex-1 flex items-center justify-center gap-2 transition-opacity duration-300">
+        <Link
+          href={current.link}
+          className="flex-1 flex items-center justify-center gap-2 transition-opacity duration-300 hover:text-amber-200"
+        >
           <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium tracking-wider uppercase bg-[#C86D51] text-white">
             {current.badge}
           </span>
           <Icon className="w-3.5 h-3.5 text-[#E4D8C4] shrink-0" />
-          <span className="truncate tracking-wide text-stone-200">
+          <span className="truncate tracking-wide text-stone-200 hover:text-white">
             {current.text}
           </span>
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center gap-3 text-stone-400">
           <Link
-            href="/la-boutique"
+            href="/cafe-brunch"
             className="hover:text-white transition-colors flex items-center gap-1 text-[11px]"
           >
-            Horaires boutique <ChevronRight className="w-3 h-3" />
+            Réserver un brunch <ChevronRight className="w-3 h-3" />
           </Link>
         </div>
       </div>

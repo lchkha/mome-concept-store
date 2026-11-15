@@ -139,12 +139,12 @@ export default function CheckoutPage() {
               <span>Retrait Click & Collect en boutique</span>
             </div>
             <p className="text-xs text-stone-600">
-              Votre commande sera soigneusement préparée sous 2 heures. Vous recevrez un SMS dès que votre pochon sera prêt.
+              Votre commande sera soigneusement préparée sous 2 heures par Angela ou Daniela. Vous recevrez un SMS dès que votre pochon sera prêt.
             </p>
             <div className="pt-2 border-t border-stone-200 text-xs text-stone-700 space-y-1">
               <p><strong>Lieu de retrait :</strong> {STORE_INFO.name}</p>
               <p>{STORE_INFO.address}, {STORE_INFO.city}</p>
-              <p><strong>Horaires :</strong> Mardi - Samedi de 10h30 à 19h00</p>
+              <p><strong>Horaires :</strong> Mercredi au Samedi de 09h30 à 17h00 • Dimanche de 10h00 à 15h00</p>
             </div>
           </div>
         ) : (
@@ -320,14 +320,14 @@ export default function CheckoutPage() {
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-bold text-stone-900">
-                        Click & Collect • Retrait en Boutique
+                        Click & Collect • Retrait en Boutique à Habsheim
                       </span>
                       <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-[#4A5D4E] text-white">
-                        Recommandé
+                        Prêt sous 2h
                       </span>
                     </div>
                     <p className="text-xs text-stone-600 mt-1">
-                      14, Rue des Carmélites, 44000 Nantes • Disponible sous 2 heures
+                      17, Rue du Maréchal Foch / Rue du Général de Gaulle, 68440 Habsheim
                     </p>
                   </div>
                 </div>

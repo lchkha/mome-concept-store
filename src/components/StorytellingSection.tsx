@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, Sparkles, MapPin, ArrowRight } from 'lucide-react';
+import { Heart, Sparkles, MapPin, ArrowRight, Coffee, UtensilsCrossed } from 'lucide-react';
+import { STORE_INFO } from '@/data/products';
 
 export default function StorytellingSection() {
   return (
@@ -17,20 +18,20 @@ export default function StorytellingSection() {
               <div className="relative aspect-4/5 rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-stone-200">
                 <Image
                   src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=1200&q=80"
-                  alt="La boutique Môme by Print Line à Nantes"
+                  alt="Le concept store et salon Môme by Print Line à Habsheim"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
 
-              {/* Inset Photo */}
-              <div className="absolute -bottom-8 -left-6 sm:-bottom-10 sm:-left-10 w-44 sm:w-56 aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block bg-stone-100">
+              {/* Inset Photo (Brunch / Coffee) */}
+              <div className="absolute -bottom-8 -left-6 sm:-bottom-10 sm:-left-10 w-48 sm:w-60 aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block bg-stone-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80"
-                  alt="Détails céramiques et bougies"
+                  src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80"
+                  alt="Brunch et cafés gourmands de Môme"
                   fill
-                  sizes="240px"
+                  sizes="260px"
                   className="object-cover"
                 />
               </div>
@@ -41,8 +42,8 @@ export default function StorytellingSection() {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="font-serif text-sm font-semibold text-stone-900">Boutique & Atelier</p>
-                  <p className="text-[11px] text-stone-500">Depuis 2018 à Nantes</p>
+                  <p className="font-serif text-sm font-semibold text-stone-900">Angela & Daniela</p>
+                  <p className="text-[11px] text-stone-500">Fondatrices • Habsheim (Alsace)</p>
                 </div>
               </div>
             </div>
@@ -52,51 +53,53 @@ export default function StorytellingSection() {
           <div className="space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF8F5] border border-[#E7E1D7] text-xs font-semibold uppercase tracking-wider text-[#C86D51]">
               <Heart className="w-3.5 h-3.5 fill-[#C86D51]" />
-              L’Esprit du Concept Store
+              L’Aventure Familiale
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl text-stone-900 font-medium leading-tight">
-              Des objets choisis avec le cœur, pensés pour embellir votre quotidien.
+              De l’atelier d’impression textile Print Line au concept store & brunch gourmand.
             </h2>
 
             <div className="space-y-4 text-stone-600 text-sm sm:text-base leading-relaxed">
               <p>
-                Née d’une passion pour l’artisanat sincère, les matières naturelles et l’art de vivre méditerranéen,{' '}
-                <strong className="text-stone-900 font-semibold">Môme by Print Line</strong> est bien plus qu’une simple boutique en ligne.
+                À l’origine, il y a <strong className="text-stone-900 font-semibold">Print Line</strong>, entreprise alsacienne créée en 1996 par deux sœurs complices, <strong className="text-stone-900 font-semibold">Angela et Daniela</strong>, expertes en création visuelle et impression sur-mesure (notamment de papiers peints de créateurs).
               </p>
               <p>
-                Dans notre écrin situé au cœur du quartier historique des Carmélites à Nantes, nous sélectionnons chaque pièce une à une auprès de créateurs indépendants, de petits ateliers de confection textile éthique et de céramistes passionnés.
+                Animées par la passion de l’art de vivre, de la mode féminine et de la bonne cuisine inspirée de leurs racines, elles ont transformé leur espace à <strong className="text-stone-900 font-semibold">Habsheim</strong> en un concept store hybride unique : <strong className="text-stone-900 font-semibold">Môme</strong>.
               </p>
               <p>
-                Du lin lavé français aux bougies coulées à la cire végétale de soja, chaque trésor raconte une histoire : celle du temps pris pour bien faire les choses, de la douceur des couleurs apaisantes et du plaisir d’offrir.
+                Ici, on vient dénicher une blouse en coton bio, une bougie au parfum délicat, mais aussi s’attabler pour déguster des <em>Pofferts</em> croustillants, une brioche <em>Carbomôme</em> au parmesan et un latte crémeux préparé minute.
               </p>
             </div>
 
             {/* Key Pillars */}
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-xl bg-white border border-[#E7E1D7]">
-                <p className="font-serif text-2xl font-bold text-[#C86D51]">100%</p>
-                <p className="text-xs text-stone-600 mt-1">Curation indépendante & coups de cœur authentiques</p>
+                <p className="font-serif text-2xl font-bold text-[#C86D51]">Boutique</p>
+                <p className="text-xs text-stone-600 mt-1">Prêt-à-porter féminin, déco & papeterie d’artisanat</p>
               </div>
               <div className="p-4 rounded-xl bg-white border border-[#E7E1D7]">
-                <p className="font-serif text-2xl font-bold text-[#4A5D4E]">2h</p>
-                <p className="text-xs text-stone-600 mt-1">Click & Collect express gratuit en boutique physique</p>
+                <p className="font-serif text-2xl font-bold text-[#4A5D4E]">Café / Brunch</p>
+                <p className="text-xs text-stone-600 mt-1">Recettes maison gourmandes, cafés & lattes de spécialité</p>
               </div>
             </div>
 
             {/* CTA */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <Link
-                href="/la-boutique"
+                href="/cafe-brunch"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1E1E1E] hover:bg-[#C86D51] text-white text-xs sm:text-sm font-medium transition-all duration-200 shadow-sm"
               >
-                <span>Visiter notre boutique à Nantes</span>
-                <ArrowRight className="w-4 h-4" />
+                <UtensilsCrossed className="w-4 h-4" />
+                <span>Découvrir le Café & Brunch</span>
               </Link>
-              <div className="flex items-center gap-1.5 text-xs text-stone-500">
+              <Link
+                href="/la-boutique"
+                className="inline-flex items-center gap-1.5 text-xs text-stone-700 hover:text-[#C86D51] font-semibold"
+              >
                 <MapPin className="w-4 h-4 text-[#C86D51]" />
-                <span>14 Rue des Carmélites, Nantes</span>
-              </div>
+                <span>Habsheim, 17 rue du Maréchal Foch / rue du Général de Gaulle</span>
+              </Link>
             </div>
           </div>
         </div>

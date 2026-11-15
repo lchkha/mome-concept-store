@@ -26,9 +26,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'Môme by Print Line | Concept Store Chic & Chaleureux',
-  description: 'Concept store lifestyle indépendant : mode féminine éthique, céramiques artisanales, décoration chaleureuse et maroquinerie au cœur de Nantes.',
-  keywords: 'concept store, môme by print line, mode femme, céramique artisanale, décoration nantes, click and collect',
+  title: 'Môme by Print Line | Concept Store & Café Brunch à Habsheim (68440)',
+  description: 'Concept store lifestyle & Coffee shop fondé par Angela & Daniela à Habsheim : prêt-à-porter féminin, céramiques, créations Print Line, lattes gourmands et brunch du week-end.',
+  keywords: 'concept store habsheim, mome by print line, brunch habsheim, cafe alsace, mode femme habsheim, ceramique mulhouse, coffee shop 68440',
 };
 
 export default function RootLayout({
